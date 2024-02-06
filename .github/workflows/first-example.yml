@@ -15,6 +15,9 @@ jobs:
            ls -ltr
            cat README.md
 
+        - name: Generate ASCII artwork using cowsay
+          run: cowsay -f sparrow "This is a sparrow" >> sparrow.txt
+
         # - name: List files
         #   run: ls
 
