@@ -16,7 +16,7 @@ jobs:
           run: cowsay -f sparrow "This is a sparrow" >> sparrow.txt
 
         - name: Test File exists
-          grep -i "sparrow" sparrow.txt
+          run: grep -i "sparrow" sparrow.txt
 
         - name: Read File
           run: cat sparrow.txt
