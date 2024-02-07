@@ -1,0 +1,25 @@
+name: Generate ascii
+
+on: push
+
+jobs:
+    ascii_job:
+        runs-on: ubuntu-latest
+        steps:
+        - name: Checkout repo
+          uses: actions/checkout@v4
+
+        - name: Install Cowsay Program
+          run: sudo apt-get install cowsay -y
+
+        - name: Execute Cowsay command
+          run: cowsay -f sparrow "This is a sparrow" >> sparrow.txt
+
+        - name: Test File exists
+          grep -i "sparrow" sparrow.txt
+
+        - name: Read File
+          run: cat sparrow.txt
+
+        - name: List Repo Files
+          run: ls -ltr
