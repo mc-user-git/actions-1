@@ -13,13 +13,13 @@ jobs:
           run: sudo apt-get install cowsay -y
 
         - name: Execute Cowsay command
-          run: cowsay -f sparrow "This is a sparrow" >> sparrow.txt
+          run: cowsay -f dragon "This is a dragon" >> dragon.txt
 
         - name: Test File exists
-          run: grep -i "sparrow" sparrow.txt
+          run: grep -i "dragon" dragon.txt
 
         - name: Read File
-          run: cat sparrow.txt
+          run: cat dragon.txt
 
         - name: List Repo Files
           run: ls -ltr
