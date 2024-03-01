@@ -16,6 +16,9 @@ jobs:
         - name: List Repo Files
           run: ls -ltra .github/workflows
 
+        - name: Check working directory
+          run: pwd
+
         - name: Run shell script
           run: |
             chmod +x ascii-script.sh
