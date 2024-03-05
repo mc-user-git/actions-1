@@ -15,11 +15,12 @@ jobs:
         - name: Execute Cowsay command
           run: cowsay -f dragon "This is a dragon" >> dragon.txt
 
-        - name: Sleep for 30 seconds
-          run: sleep 30
+        - name: Sleep for 10 seconds
+          run: sleep 10
 
     test_job_2:
         runs-on: ubuntu-latest
+        needs: build_job_1
         steps:
         - name: Sleep for 10 seconds
           run: sleep 10
@@ -29,6 +30,7 @@ jobs:
 
     deploy_job_3:
         runs-on: ubuntu-latest
+        needs: [test_job_2]
         steps:
         - name: Read File
           run: cat dragon.txt
