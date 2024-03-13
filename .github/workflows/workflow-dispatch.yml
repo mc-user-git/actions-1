@@ -1,22 +1,23 @@
-name: Create workflow_dispatch workflow
+name: Create workflow dispatch workflow
 
 on:
     workflow_dispatch: 
       inputs:
         testtype:
-          description: "Type of tests to run"
           type: choice
+          description: "Type of tests to run"
+          options:
           - Cli
           - Api
           - UI
           required: true
 
 jobs:
-    run_tests:
+    runtests:
         runs-on: ubuntu-latest
         steps:
         - name: Run the tests
-          run: echo "Running the test: ${{ github.event.inputs.testtype }}"
+          run: ls -ltr
           
 
             
