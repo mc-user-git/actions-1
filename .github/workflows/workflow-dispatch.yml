@@ -17,7 +17,8 @@ jobs:
         runs-on: ubuntu-latest
         steps:
         - name: Run the tests
-          run: ls -ltr
+          run: | 
+            echo "Running the test: ${{ github.event.inputs.testtype }}"
           
 
             
