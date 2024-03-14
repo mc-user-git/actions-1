@@ -16,9 +16,16 @@ jobs:
     runtests:
         runs-on: ubuntu-latest
         steps:
-        - name: Run the test ${{ github.event.inputs.testtype }}
-          run: echo "Running the test ${{ github.event.inputs.testtype }}"
+        - name: Run the Cli tests
+          run: echo "Running the Cli tests"
           if: ${{ github.event.inputs.testtype == 'Cli' }}
+
+        - name: Run the APi tests
+          run: echo "Set up and run the Api tests"
+          if: ${{ github.event.inputs.testtype == 'Api' }}
           
+        - name: Run the UI tests
+          run: echo "Install setup and run the UI tests"
+          if: ${{ github.event.inputs.testtype == 'UI' }}
 
             
