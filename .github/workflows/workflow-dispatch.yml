@@ -16,9 +16,9 @@ jobs:
     runtests:
         runs-on: ubuntu-latest
         steps:
-        - name: Run the tests
-          run: | 
-            echo "Running the test: ${{ github.event.inputs.testtype }}"
+        - name: Run the test ${{ github.event.inputs.testtype }}
+          run: echo "Running the test ${{ github.event.inputs.testtype }}"
+          if: ${{ github.event.inputs.testtype == 'Cli' }}
           
 
             
