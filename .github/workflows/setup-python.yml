@@ -17,6 +17,9 @@ jobs:
               with:
                 go-version: '1.21'
                 check-latest: true
+              
+            - name: Check go
+              run: go run hello.go
 
             - name: Set up Python
               uses: actions/setup-python@v4
