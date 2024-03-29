@@ -36,7 +36,13 @@ jobs:
             - name: List Repo Files
               run: ls -ltra .github
 
-            - name: Build Cli
+            - name: Download cli
               run: |
-                cd cli
-                CGO_ENABLED=0 GOOS=linux GOARCH=amd64 make build
+                wget https://github.com/percona/everest/releases/download/v0.9.0-rc2/everestctl-linux-amd64
+                chmod +x everestctl-linux-amd64
+                ./everestctl-linux-amd64 
+
+        #    - name: Build Cli
+        #      run: |
+        #        cd cli
+        #        CGO_ENABLED=0 GOOS=linux GOARCH=amd64 make build
