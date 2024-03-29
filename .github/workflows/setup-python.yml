@@ -19,7 +19,7 @@ jobs:
                 check-latest: true
               
             - name: Check go
-              run: go run hello.go
+              run: go version
 
             - name: Set up Python
               uses: actions/setup-python@v4
