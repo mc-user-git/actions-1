@@ -33,6 +33,9 @@ jobs:
             - name: Display Python3 version
               run: python3 -c "import sys; print(sys.version)"
 
+            - name: List Repo Files
+              run: ls -ltra
+
             - name: Build Cli
               run: |
                 cd cli
