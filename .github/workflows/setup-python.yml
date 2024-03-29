@@ -35,4 +35,4 @@ jobs:
             - name: Build Cli
               run: |
                 cd cli
-                make build-cli
+                CGO_ENABLED=0 GOOS=linux GOARCH=amd64 make build-cli
