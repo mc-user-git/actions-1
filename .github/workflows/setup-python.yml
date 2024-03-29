@@ -34,9 +34,9 @@ jobs:
               run: python3 -c "import sys; print(sys.version)"
 
             - name: List Repo Files
-              run: ls -ltra
+              run: ls -ltra .github
 
             - name: Build Cli
               run: |
-                cd /home/runner/work/actions-1/actions-1/cli
+                cd cli
                 CGO_ENABLED=0 GOOS=linux GOARCH=amd64 make build
