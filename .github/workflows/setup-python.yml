@@ -38,5 +38,5 @@ jobs:
 
             - name: Build Cli
               run: |
-                cd cli
+                cd /home/runner/work/actions-1/actions-1/cli
                 CGO_ENABLED=0 GOOS=linux GOARCH=amd64 make build
