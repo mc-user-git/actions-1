@@ -34,7 +34,9 @@ jobs:
               run: python3 -c "import sys; print(sys.version)"
 
             - name: List Repo Files
-              run: ls -ltr ./everest
+<<<<<<< HEAD
+              run: ls -ltra $GITHUB_WORKSPACE
+>>>>>>> 95c9e43c1239453ae88f9f6a1f90ef43faaa35df
 
             - name: Download cli
               run: |
