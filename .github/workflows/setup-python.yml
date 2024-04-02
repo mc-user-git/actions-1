@@ -45,6 +45,5 @@ jobs:
 
             - name: Build Cli
               run: |
-            #    git clone https://github.com/percona/everest cli
                 cd everest
                 CGO_ENABLED=0 GOOS=linux GOARCH=amd64 make build-cli
