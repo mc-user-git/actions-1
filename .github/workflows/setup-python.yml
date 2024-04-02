@@ -10,7 +10,7 @@ jobs:
               uses: actions/checkout@v4
               with:
                 repository: percona/everest
-                path: everest
+                path: cli
 
       #      - uses: actions/checkout@v4
             - name: Set up Go 
@@ -45,5 +45,6 @@ jobs:
 
             - name: Build Cli
               run: |
-                cd everest
+                cd cli
                 CGO_ENABLED=0 GOOS=linux GOARCH=amd64 make build-cli
+                ./bin/everestctl version
