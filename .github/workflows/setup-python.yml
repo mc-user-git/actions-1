@@ -34,7 +34,7 @@ jobs:
               run: python3 -c "import sys; print(sys.version)"
 
             - name: List Repo Files
-              run: ls -ltra $GITHUB_WORKSPACE/.github/workflows
+              run: ls -ltra $GITHUB_WORKSPACE
 
        #     - name: Download cli
        #       run: |
