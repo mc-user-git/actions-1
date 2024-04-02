@@ -12,7 +12,7 @@ jobs:
                 repository: percona/everest
                 path: everest
 
-            - uses: actions/checkout@v4
+      #      - uses: actions/checkout@v4
             - name: Set up Go 
               uses: actions/setup-go@v5
               with:
@@ -47,4 +47,4 @@ jobs:
               run: |
                 git clone https://github.com/percona/everest cli
                 cd cli
-                CGO_ENABLED=0 GOOS=linux GOARCH=amd64 make build
+                CGO_ENABLED=0 GOOS=linux GOARCH=amd64 make build-cli
