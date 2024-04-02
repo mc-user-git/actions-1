@@ -16,7 +16,7 @@ jobs:
             - name: Set up Go 
               uses: actions/setup-go@v5
               with:
-                go-version: '1.21'
+                go-version: '1.22'
                 check-latest: true
               
             - name: Check go
@@ -45,6 +45,6 @@ jobs:
 
             - name: Build Cli
               run: |
-                git clone https://github.com/percona/everest cli
-                cd cli
+            #    git clone https://github.com/percona/everest cli
+                cd everest
                 CGO_ENABLED=0 GOOS=linux GOARCH=amd64 make build-cli
