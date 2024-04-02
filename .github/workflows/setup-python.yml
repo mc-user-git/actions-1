@@ -36,14 +36,15 @@ jobs:
             - name: List Repo Files
               run: ls -ltra $GITHUB_WORKSPACE/.github/workflows
 
-            - name: Download cli
-              run: |
-                wget https://github.com/percona/everest/releases/download/v0.9.0-rc2/everestctl-linux-amd64
-                chmod +x everestctl-linux-amd64
-                mv everestctl-linux-amd64 everestctl
-                ./everestctl version 
+       #     - name: Download cli
+       #       run: |
+       #         wget https://github.com/percona/everest/releases/download/v0.9.0-rc2/everestctl-linux-amd64
+       #         chmod +x everestctl-linux-amd64
+       #         mv everestctl-linux-amd64 everestctl
+       #         ./everestctl version 
 
-        #    - name: Build Cli
-        #      run: |
-        #        cd cli
-        #        CGO_ENABLED=0 GOOS=linux GOARCH=amd64 make build
+            - name: Build Cli
+              run: |
+                git clone https://github.com/percona/everest cli
+                cd cli
+                CGO_ENABLED=0 GOOS=linux GOARCH=amd64 make build
