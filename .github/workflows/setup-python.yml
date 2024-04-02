@@ -10,7 +10,7 @@ jobs:
               uses: actions/checkout@v4
               with:
                 repository: percona/everest
-                path: cli
+                path: /opt/cli
 
             - uses: actions/checkout@v4
             - name: Set up Go 
@@ -34,7 +34,7 @@ jobs:
               run: python3 -c "import sys; print(sys.version)"
 
             - name: List Repo Files
-              run: ls -ltra .github
+              run: ls -ltr /opt/cli
 
             - name: Download cli
               run: |
