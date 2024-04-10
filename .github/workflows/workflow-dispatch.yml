@@ -16,6 +16,15 @@ jobs:
     runtests:
         runs-on: ubuntu-latest
         steps:
+        - name: Checkout repo
+          uses: actions/checkout@v4
+
+        - name: List Repo Files
+          run: ls -ltra
+
+        - name: Check working directory
+          run: pwd
+
         - name: Run the Cli tests
           run: echo "Running the Cli tests"
           if: ${{ github.event.inputs.testtype == 'Cli' }}
