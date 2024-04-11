@@ -15,20 +15,24 @@ on:
 jobs:
     runtests:
         runs-on: ubuntu-latest
-        defaults:
-          run:
-            working-directory: .github/workflows
             
         steps:
         - name: Checkout repo
           uses: actions/checkout@v4
 
         - name: List Repo Files
-          run: ls -ltra
+          run: | 
+            ls -ltra
+            cd testdir1
+            ls -ltra
 
         - name: Check working directory
           run: pwd
 
+        - name: List Repo Files of .github/workflows
+          run: ls -ltra
+          working-directory: .github/workflows
+        
         - name: Run the Cli tests
           run: echo "Running the Cli tests"
           if: ${{ github.event.inputs.testtype == 'Cli' }}
