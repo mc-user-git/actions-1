@@ -10,13 +10,18 @@ jobs:
     deploy:
       strategy:
         matrix:
-          os: [ubuntu-latest, ubuntu-20.04]
-          images: ["hello world", alpine]
-      
+          os: [ubuntu-latest, ubuntu-20.04, windows-latest]
+          images: [hello-world, alpine]
+          exclude:
+            - images: alpine, hello-world
+              os: windows-latest
+          include:
+            - images: amd64/alpine
+              os: ubuntu-20.04
       runs-on: ${{ matrix.os }}
       steps:
         - name: Echo docker details
           run: docker info
 
-        - name: Run Images
+        - name: Run Images on ${{ matrix.os }}
           run: docker run ${{ matrix.images }}
