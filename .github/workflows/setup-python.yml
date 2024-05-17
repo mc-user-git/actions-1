@@ -40,7 +40,9 @@ jobs:
             - name: Set environment variable
               run: |
                 echo "TOKEN=Thisisatoken" >> $GITHUB_ENV
-
+      
+      #     We can't use the environment variable in the same step as we set it
+      #     It is only available in the next step
             - name: Check environment variable
               run: |
                 #echo "Print all environment variables"
