@@ -1,0 +1,22 @@
+name: Matrix
+
+on: 
+    push:
+    workflow_dispatch:
+# This job will use matrix to run parallel for all os and images. Hence this will run 4 combinations
+# in parallel
+
+jobs:
+    deploy:
+      strategy:
+        matrix:
+          os: [ubuntu-latest, ubuntu-20.04]
+          images: [hello world, alpine]
+      
+      runs-on: ${{ matrix.os }}
+      steps:
+        - name: Echo docker details
+          run: docker info
+
+        - name: Run Images
+          run: docker run ${{ matrix.images }}
