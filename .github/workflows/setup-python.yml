@@ -36,6 +36,14 @@ jobs:
             - name: List Repo Files
               run: ls -ltra $GITHUB_WORKSPACE
 
+            - name: Check environment variable
+              run: |
+                echo "TOKEN=Thisisatoken" >> $GITHUB_ENV
+                # Print TOKEN
+                echo "TOKEN from GITHUB_ENV: $TOKEN"
+                # test to check if TOKEN is available
+                python3 -c "import os; print('TOKEN:', os.getenv('TOKEN'))"
+
        #     - name: Download cli
        #       run: |
        #         wget https://github.com/percona/everest/releases/download/v0.9.0-rc2/everestctl-linux-amd64
@@ -43,8 +51,9 @@ jobs:
        #         mv everestctl-linux-amd64 everestctl
        #         ./everestctl version 
 
-            - name: Build Cli
-              run: |
-                cd cli
-                CGO_ENABLED=0 GOOS=linux GOARCH=amd64 make build-cli
-                ./bin/everestctl version
+       # This works just commenting it
+       #     - name: Build Cli
+       #       run: |
+       #         cd cli
+       #         CGO_ENABLED=0 GOOS=linux GOARCH=amd64 make build-cli
+       #         ./bin/everestctl version
