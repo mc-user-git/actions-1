@@ -36,15 +36,19 @@ jobs:
             - name: List Repo Files
               run: ls -ltra $GITHUB_WORKSPACE
 
-            - name: Check environment variable
+              
+            - name: Set environment variable
               run: |
                 echo "TOKEN=Thisisatoken" >> $GITHUB_ENV
 
-                echo "Print all environment variables"
-                printenv
-                
+            - name: Check environment variable
+              run: |
+                #echo "Print all environment variables"
+                #printenv
+
                 # Print TOKEN
                 echo "TOKEN from GITHUB_ENV: $TOKEN"
+                
                 # test to check if TOKEN is available
                 python3 -c "import os; print('TOKEN:', os.getenv('TOKEN'))"
 
