@@ -40,13 +40,14 @@ jobs:
           working-directory: .github/workflows
         
         - name: Check if install is for release or rc version
-          if: ${{ github.event.inputs.software_version }}
+          if: ${{ github.event.inputs.software_version }} 
           shell: bash
           run: |
-            if [[ ${{ github.event.inputs.software_version == *{rc}* ]]; then
-               echo "This is a RC version"
+            echo ""
+            if [[ ${{ github.event.inputs.software_version }} == *"rc"* ]]; then
+              echo "This is a RC version"
             else
-               echo "This is a Release version"
+              echo "This is a Release version"
             fi
 
         - name: Run the Cli tests
